@@ -62,10 +62,13 @@ class ViewController: UIViewController {
         
         
         if dice1 > dice2 {
+            lblResults.textColor = UIColor.systemRed
             lblResults.text = "Player One Won!"
         } else if dice1 == dice2 {
-            lblResults.text = "The result is a Draw!"
+            lblResults.textColor = UIColor.black
+            lblResults.text = "Draw!"
         } else {
+            lblResults.textColor = UIColor.systemIndigo
             lblResults.text = "Player Two Won!"
         }
         
