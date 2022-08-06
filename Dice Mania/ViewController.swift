@@ -43,6 +43,37 @@ class ViewController: UIViewController {
         }
     }
 
+    
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        
+        createDiceValues()
+        
+    }
+    
+    
+    func createDiceValues() {
+        
+        let dice1 = arc4random_uniform(6) + 1
+        let dice2 = arc4random_uniform(6) + 1
+        
+        imgPlayer1Dice.image = UIImage(named: String(dice1))
+        imgPlayer2Dice.image = UIImage(named: String(dice2))
+        
+        
+        if dice1 > dice2 {
+            lblResults.text = "Player One Won!"
+        } else if dice1 == dice2 {
+            lblResults.text = "The result is a Draw!"
+        } else {
+            lblResults.text = "Player Two Won!"
+        }
+        
+    }
+    
+    
+    
+    
 
 }
 
