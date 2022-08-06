@@ -90,6 +90,17 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="imgPlayer1Dice" destination="zRb-Pn-bEl" id="QRI-0V-6wu"/>
+                        <outlet property="imgPlayer1Turn" destination="659-OH-S0o" id="7tg-Ts-jBI"/>
+                        <outlet property="imgPlayer2Dice" destination="Cf5-Qu-5Jc" id="Dmj-0R-FCo"/>
+                        <outlet property="imgPlayer2Turn" destination="2dt-sg-Om2" id="ReQ-5d-RUd"/>
+                        <outlet property="lblCurrentScore1" destination="giX-5O-2rx" id="03s-sZ-fjI"/>
+                        <outlet property="lblCurrentScore2" destination="oAG-Yz-Iga" id="12e-MD-F6e"/>
+                        <outlet property="lblResults" destination="eNp-YG-fvV" id="IJn-Vy-w3p"/>
+                        <outlet property="lblScore1" destination="ioJ-Sg-P5N" id="tJb-7J-tIF"/>
+                        <outlet property="lblScore2" destination="eys-hR-SDP" id="5vO-gU-nat"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
