@@ -47,6 +47,10 @@ class ViewController: UIViewController {
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         
+        if currentSet > lastSet {
+            return endGame()
+        }
+        
         createDiceValues()
         
     }
@@ -82,7 +86,7 @@ class ViewController: UIViewController {
                 lblScore1.text = String(playerScores.player1Score)
                 
                 lblResults.textColor = UIColor.systemRed
-                lblResults.text = "Player One Won set: \(currentSet)!"
+                lblResults.text = "Player 1 Won set: \(currentSet)!"
                 
                 currentSet += 1
                 
@@ -97,7 +101,7 @@ class ViewController: UIViewController {
                 lblScore2.text = String(playerScores.player2Score)
                 
                 lblResults.textColor = UIColor.systemIndigo
-                lblResults.text = "Player Two Won set:\(currentSet)!"
+                lblResults.text = "Player 2 Won set:\(currentSet)!"
                 
                 currentSet += 1
                 
@@ -118,14 +122,30 @@ class ViewController: UIViewController {
         imgPlayer1Dice.image = UIImage(named: String(dice1))
         imgPlayer2Dice.image = UIImage(named: String(dice2))
         
-        lblResults.textColor = UIColor.black
-        lblResults.text = "Shake for Roll!"
-        
         afterSet(dice1: Int(dice1), dice2: Int(dice2))
         
     }
     
-    
+    func endGame() {
+        
+        lblResults.textColor = UIColor.black
+        
+        if playerScores.player1Score > playerScores.player2Score {
+            
+            lblCurrentScore1.text = "0"
+            lblCurrentScore2.text = "0"
+            
+            lblResults.text = "Player 1 Won The GAME!"
+        
+        } else {
+            
+            lblCurrentScore1.text = "0"
+            lblCurrentScore2.text = "0"
+            
+            lblResults.text = "Player 2 Won The GAME!"
+        
+        }
+    }
     
     
 
