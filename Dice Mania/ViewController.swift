@@ -70,8 +70,6 @@ class ViewController: UIViewController {
             
             playerTurn = 2
             
-            lblResults.textColor = UIColor.black
-            lblResults.text = "Shake for Roll!"
             
         } else {
             playerPoints.player2Points = dice1 + dice2
@@ -98,6 +96,11 @@ class ViewController: UIViewController {
                 
                 currentSet += 1
                 
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                    self.lblResults.text = "Shake for Roll!"
+                    self.lblResults.textColor = UIColor.black
+                }
+                
             } else if playerPoints.player1Points == playerPoints.player2Points {
                 
                 lblResults.textColor = UIColor.black
@@ -106,6 +109,11 @@ class ViewController: UIViewController {
                 lblSets.text = "Set : \(currentSet)"
                 lblSets.sizeToFit()
                 lblSets.isHidden = false
+                
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                    self.lblResults.text = "Shake for Roll!"
+                    self.lblResults.textColor = UIColor.black
+                }
                 
                 
             } else {
@@ -122,6 +130,11 @@ class ViewController: UIViewController {
                 
                 currentSet += 1
                 
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                    self.lblResults.text = "Shake for Roll!"
+                    self.lblResults.textColor = UIColor.black
+                }
+                
             }
         }
         
@@ -132,15 +145,20 @@ class ViewController: UIViewController {
     
     func createDiceValues() {
         
-        let dice1 = arc4random_uniform(6) + 1
-        let dice2 = arc4random_uniform(6) + 1
-        
-        imgPlayer1Dice.image = UIImage(named: String(dice1))
-        imgPlayer2Dice.image = UIImage(named: String(dice2))
-        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1){
+            let dice1 = arc4random_uniform(6) + 1
+            let dice2 = arc4random_uniform(6) + 1
+            
+            self.imgPlayer1Dice.image = UIImage(named: String(dice1))
+            self.imgPlayer2Dice.image = UIImage(named: String(dice2))
+            
 
+            
+            self.afterSet(dice1: Int(dice1), dice2: Int(dice2))
+        }
         
-        afterSet(dice1: Int(dice1), dice2: Int(dice2))
+        imgPlayer1Dice.image = UIImage(named: "bilinmeyenZar")
+        imgPlayer2Dice.image = UIImage(named: "bilinmeyenZar")
         
     }
     
