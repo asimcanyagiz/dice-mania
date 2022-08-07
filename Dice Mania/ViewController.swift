@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var imgPlayer2Dice: UIImageView!
     
     @IBOutlet weak var lblResults: UILabel!
-    
+    @IBOutlet weak var lblSets: UILabel!
     
 
     var playerScores = (player1Score : 0, player2Score : 0)
@@ -70,6 +70,9 @@ class ViewController: UIViewController {
             
             playerTurn = 2
             
+            lblResults.textColor = UIColor.black
+            lblResults.text = "Shake for Roll!"
+            
         } else {
             playerPoints.player2Points = dice1 + dice2
             lblCurrentScore2.text = String(playerPoints.player2Points)
@@ -86,7 +89,12 @@ class ViewController: UIViewController {
                 lblScore1.text = String(playerScores.player1Score)
                 
                 lblResults.textColor = UIColor.systemRed
-                lblResults.text = "Player 1 Won set: \(currentSet)!"
+                lblResults.text = "Player 1 Won!"
+                
+                lblSets.text = "Set : \(currentSet)"
+                lblSets.sizeToFit()
+                lblSets.isHidden = false
+                
                 
                 currentSet += 1
                 
@@ -95,19 +103,27 @@ class ViewController: UIViewController {
                 lblResults.textColor = UIColor.black
                 lblResults.text = "Draw!"
                 
+                lblSets.text = "Set : \(currentSet)"
+                lblSets.sizeToFit()
+                lblSets.isHidden = false
+                
+                
             } else {
                 
                 playerScores.player2Score += 1
                 lblScore2.text = String(playerScores.player2Score)
                 
                 lblResults.textColor = UIColor.systemIndigo
-                lblResults.text = "Player 2 Won set:\(currentSet)!"
+                lblResults.text = "Player 2 Won!"
+                
+                lblSets.text = "Set : \(currentSet)"
+                lblSets.sizeToFit()
+                lblSets.isHidden = false
                 
                 currentSet += 1
                 
             }
         }
-        
         
         
     }
@@ -121,6 +137,8 @@ class ViewController: UIViewController {
         
         imgPlayer1Dice.image = UIImage(named: String(dice1))
         imgPlayer2Dice.image = UIImage(named: String(dice2))
+        
+
         
         afterSet(dice1: Int(dice1), dice2: Int(dice2))
         
@@ -136,6 +154,7 @@ class ViewController: UIViewController {
             lblCurrentScore2.text = "0"
             
             lblResults.text = "Player 1 Won The GAME!"
+            lblSets.isHidden = true
         
         } else {
             
@@ -143,6 +162,7 @@ class ViewController: UIViewController {
             lblCurrentScore2.text = "0"
             
             lblResults.text = "Player 2 Won The GAME!"
+            lblSets.isHidden = true
         
         }
     }
