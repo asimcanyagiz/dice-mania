@@ -52,6 +52,64 @@ class ViewController: UIViewController {
     }
     
     
+    
+    func afterSet(dice1 : Int, dice2 : Int){
+        if playerTurn == 1 {
+            
+            playerPoints.player1Points = dice1 + dice2
+            lblCurrentScore1.text = String(playerPoints.player1Points)
+            lblCurrentScore1.sizeToFit()
+            lblCurrentScore2.text = "0"
+            
+            imgPlayer1Turn.image = UIImage(named: "bekle")
+            imgPlayer2Turn.image = UIImage(named: "onay")
+            
+            playerTurn = 2
+            
+        } else {
+            playerPoints.player2Points = dice1 + dice2
+            lblCurrentScore2.text = String(playerPoints.player2Points)
+            lblCurrentScore2.sizeToFit()
+            
+            imgPlayer1Turn.image = UIImage(named: "onay")
+            imgPlayer2Turn.image = UIImage(named: "bekle")
+            
+            playerTurn = 1
+            
+            if playerPoints.player1Points > playerPoints.player2Points {
+                
+                playerScores.player1Score += 1
+                lblScore1.text = String(playerScores.player1Score)
+                
+                lblResults.textColor = UIColor.systemRed
+                lblResults.text = "Player One Won set: \(currentSet)!"
+                
+                currentSet += 1
+                
+            } else if playerPoints.player1Points == playerPoints.player2Points {
+                
+                lblResults.textColor = UIColor.black
+                lblResults.text = "Draw!"
+                
+            } else {
+                
+                playerScores.player2Score += 1
+                lblScore2.text = String(playerScores.player2Score)
+                
+                lblResults.textColor = UIColor.systemIndigo
+                lblResults.text = "Player Two Won set:\(currentSet)!"
+                
+                currentSet += 1
+                
+            }
+        }
+        
+        
+        
+    }
+    
+    
+    
     func createDiceValues() {
         
         let dice1 = arc4random_uniform(6) + 1
@@ -60,17 +118,10 @@ class ViewController: UIViewController {
         imgPlayer1Dice.image = UIImage(named: String(dice1))
         imgPlayer2Dice.image = UIImage(named: String(dice2))
         
+        lblResults.textColor = UIColor.black
+        lblResults.text = "Shake for Roll!"
         
-        if dice1 > dice2 {
-            lblResults.textColor = UIColor.systemRed
-            lblResults.text = "Player One Won!"
-        } else if dice1 == dice2 {
-            lblResults.textColor = UIColor.black
-            lblResults.text = "Draw!"
-        } else {
-            lblResults.textColor = UIColor.systemIndigo
-            lblResults.text = "Player Two Won!"
-        }
+        afterSet(dice1: Int(dice1), dice2: Int(dice2))
         
     }
     
