@@ -24,7 +24,7 @@
 * Highest score after 5 sets wins.
 * Animations that allow the user to follow the game flow!
 * You can instantly follow the score and whose turn it is.
--![DiceMania](https://user-images.githubusercontent.com/89473605/183297161-99ce2db8-1c57-4460-b950-84a64c4444a4.gif)
+  - ![DiceMania](https://user-images.githubusercontent.com/89473605/183297161-99ce2db8-1c57-4460-b950-84a64c4444a4.gif)
 * Cross platform
   - iOS, macOS ready.
 
