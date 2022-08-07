@@ -159,6 +159,8 @@ class ViewController: UIViewController {
         
         imgPlayer1Dice.image = UIImage(named: "bilinmeyenZar")
         imgPlayer2Dice.image = UIImage(named: "bilinmeyenZar")
+        imgPlayer1Dice.shake(1)
+        imgPlayer2Dice.shake(1)
         
     }
     
@@ -189,3 +191,12 @@ class ViewController: UIViewController {
 
 }
 
+extension UIView {
+    func shake(_ duration: Double? = 0.4) {
+        self.transform = CGAffineTransform(translationX: 40, y: 20)
+        UIView.animate(withDuration: duration ?? 0.4, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
+            self.transform = CGAffineTransform.identity
+        }, completion: nil)
+    }
+    
+}
