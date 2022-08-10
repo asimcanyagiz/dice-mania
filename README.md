@@ -46,7 +46,7 @@ $ open index.html
 
 ## Download
 
-You can [download](https://github.com/asimcanyagiz/dice-mania) the latest installable version of RGB Converter for Windows, macOS and Linux.
+You can [download](https://github.com/asimcanyagiz/dice-mania) the latest installable version of Dice Mania for Windows, macOS and Linux.
 
 ## Technologies Used
 
